@@ -144,7 +144,7 @@ class DBP_Widget
 		if ($feed->get_items())
 		{
 ?>
-<div class='dbp-content' style='height:<?php echo $this->options['height']; ?>em;'>
+<div class='dbp-content' style='max-height:<?php echo $this->options['height']; ?>em;'>
 	<ul>
 <?php
 			$z = 1;
