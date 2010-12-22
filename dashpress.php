@@ -90,6 +90,7 @@ class DashPress {
 
 		$page = 'dashboard';
 		$visible = (current_user_can( 'edit_dashboard' )) ? get_user_option(self::option_boxes) : get_option(self::option_boxes);
+                if (!is_array($visible)) $visible = array();
 		foreach ( array_keys($wp_meta_boxes[$page]) as $context )
 		{ 
 			foreach ( array_keys($wp_meta_boxes[$page][$context]) as $priority ) 
