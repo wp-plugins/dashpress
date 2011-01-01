@@ -6,7 +6,7 @@ Requires at least: 2.9
 Tested up to: 2.9
 Stable tag: 3.1
 
-Allows you to display the last items of several feeds on your dashboard 
+The ultimate Dashboard management plugin
 
 == Description ==
 
