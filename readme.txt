@@ -2,11 +2,11 @@
 Contributors: andre renaut
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=andre%2erenaut%40gmail%2ecom&lc=US&item_name=MailPress&item_number=gg&amount=5%2e00&currency_code=EUR&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHostedGuest
 Tags: Feed, Aggregator, SimplePie, Widget, Dashboard, Wordpress, Plugin, Management
-Requires at least: 2.9
-Tested up to: 2.9
-Stable tag: 3.1
+Requires at least: 3.2
+Tested up to: 3.2
+Stable tag: 3.2
 
-The ultimate Dashboard management plugin
+Allows you to display the last items of several feeds on your dashboard 
 
 == Description ==
 
@@ -34,7 +34,9 @@ Supported languages : English, French	(.pot provided)
 
 == Changelog ==
 
- **3.1**		2010/12/21 first release
+ **3.2**		2011/08/01 wp 3.2 compatibility
+
+ 3.1		2010/12/21 first release
 
 == Upgrade notice ==
 *

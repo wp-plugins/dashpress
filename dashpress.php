@@ -4,7 +4,7 @@ Plugin Name:  DashPress
 Plugin URI: http://wordpress.org/extend/plugins/dashpress/
 Description: The ultimate Dashboard management plugin
 Author: Andre Renaut
-Version: 3.1
+Version: 3.2
 Author URI: http://www.nogent94.com
 */
 
@@ -55,18 +55,18 @@ class DashPress {
 		}
 
 	// for gettext
-		load_plugin_textdomain(self::txt_domain, DBP_PLUGIN_DIR . 'dbp-content/languages');
+		load_plugin_textdomain(self::txt_domain, false, DBP_PLUGIN_DIR . 'dbp-content/languages');
 
 	// for css
+		wp_register_style ( self::screen, 		'/' . DBP_PLUGIN_DIR . 'dbp-admin/css/dbp.css' );
+		wp_enqueue_style(self::screen);
+
 		$pathcss		= DBP_PLUGIN_PATH . 'dbp-admin/css/colors_' . get_user_option('admin_color') . '.css';
 		$css_url		= '/' . DBP_PLUGIN_DIR . 'dbp-admin/css/colors_' . get_user_option('admin_color') . '.css';
 		$css_url_default 	= '/' . DBP_PLUGIN_DIR . 'dbp-admin/css/colors_fresh.css';
 		$css_url		= (is_file($pathcss)) ? $css_url : $css_url_default;
 		wp_register_style ( self::screen . '_colors', 	$css_url );
 		wp_enqueue_style  ( self::screen . '_colors' );
-
-		wp_register_style ( self::screen, 		'/' . DBP_PLUGIN_DIR . 'dbp-admin/css/dbp.css' );
-		wp_enqueue_style(self::screen);
 
 	// for javascript
 		add_action('admin_footer', array(__CLASS__, 'admin_footer'));
@@ -75,9 +75,9 @@ class DashPress {
 		wp_localize_script ( self::screen, 		'dbpL10n', array( 
 			'url' 		=> admin_url('admin-ajax.php'),
 			'can_edit'		=> current_user_can( 'edit_dashboard' ) ? 1 : 0,
-			'dashboard_tab' 	=> js_escape(__('Dashboard Options', self::txt_domain)),
-			'set'			=> js_escape(__('Set default', self::txt_domain)),
-			'erase'		=> js_escape(__('Erase default', self::txt_domain)),
+			'dashboard_tab' 	=> esc_js(__('Dashboard Options', self::txt_domain)),
+			'set'			=> esc_js(__('Set default', self::txt_domain)),
+			'erase'		=> esc_js(__('Erase default', self::txt_domain)),
 		));
 		wp_enqueue_script(self::screen);
 
@@ -114,14 +114,13 @@ class DashPress {
 
 		$value = (get_option(self::option_wdgt)) ? __('Erase default', self::txt_domain) : __('Set default', self::txt_domain);
 ?>
-<div id='dashpress_container' style='display:none;'>
-	<div id='dashboard-options-wrap' class='hidden'>
-        <div style='float:right;padding:4px 0;'>
-            <?php echo self::paypal; ?>
-        </div>
+<div id='dashboard-options-wrap' class='hidden'>
+	<div style='float:right;padding:4px 0;'>
+		<?php echo self::paypal; ?>
+	</div>
+	<form id='adv-dashboard-settings' method='post' action=''>
 		<h5><?php _e('Show on Dashboard', self::txt_domain); ?></h5>
-		<form id='adv-dashboard-settings' method='post' action=''>
-			<div class='metabox-prefs'>
+		<div class='metabox-prefs'>
 <?php
 		foreach($dbp_boxes as $dbp_box)
 		{
@@ -129,29 +128,28 @@ class DashPress {
 			$id      = $dbp_box['id'];
 			$title   = $dbp_box['title'];
 ?>
-				<label for='<?php echo $id; ?>-dbp'><input type='checkbox'<?php echo $checked; ?> value='<?php echo $id; ?>' id='<?php echo $id; ?>-dbp' name='<?php echo $id; ?>-dbp' class='hide-dashbox-tog' /><?php echo $title; ?></label>
+			<label for='<?php echo $id; ?>-dbp'><input type='checkbox'<?php echo $checked; ?> value='<?php echo $id; ?>' id='<?php echo $id; ?>-dbp' name='<?php echo $id; ?>-dbp' class='hide-dashbox-tog' /><?php echo $title; ?></label>
 <?php
 		}
 ?>
-				<br class='clear' />
-			</div>
+			<br class='clear' />
+		</div>
 			<h5><?php _e('DashPress Option', self::txt_domain); ?></h5>
-			<div class='widgets-prefs'>
-				<input id='dashpress-global-settings' type='button' value="<?php echo esc_attr($value); ?>" style='float:right;' />
-				<?php _e('Number of DashPress widgets:', self::txt_domain); ?>
+		<div class='widgets-prefs'>
+			<input id='dashpress-global-settings' type='button' value="<?php echo esc_attr($value); ?>" style='float:right;' />
+			<?php _e('Number of DashPress widgets:', self::txt_domain); ?>
 <?php
 		$count = get_user_option(self::option_name);
 		for ($i = 1; $i <= self::maxwidgets; $i++) 
 		{
 			$checked = ($i == $count) ?  " checked='checked'" : '';
 ?>
-				<label><input class='dbp_option'<?php echo $checked; ?> name='dbp_option' value='<?php echo $i; ?>' type='radio' /><?php echo $i; ?></label>
+			<label><input class='dbp_option'<?php echo $checked; ?> name='dbp_option' value='<?php echo $i; ?>' type='radio' /><?php echo $i; ?></label>
 <?php
 		}
 ?>
-			</div>
-		</form>
-	</div>
+		</div>
+	</form>
 </div>
 <?php
 	}

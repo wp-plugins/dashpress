@@ -1,47 +1,35 @@
 /* dashboard options tab */
 
-#dashboard-options-wrap {
+#dashboard-options-link-wrap {
 	/* css3 */
-	border-top-left-radius: 0px;
-	border-top-right-radius: 0px;
-	border-bottom-left-radius: 4px;
-	border-bottom-right-radius: 0px;
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
 
 	/* mozilla */
-	-moz-border-radius-topleft: 0px;
-	-moz-border-radius-topright: 0px;
-	-moz-border-radius-bottomleft: 4px;
-	-moz-border-radius-bottomright: 0px;
+	-moz-border-radius-bottomleft: 3px;
+	-moz-border-radius-bottomright: 3px;
 
 	/* webkit */
-	-webkit-border-top-left-radius: 0px;
-	-webkit-border-top-right-radius: 0px;
-	-webkit-border-bottom-left-radius: 4px;
-	-webkit-border-bottom-right-radius: 0px;
+	-webkit-border-bottom-left-radius: 3px;
+	-webkit-border-bottom-right-radius: 3px;
 
 	/* khtml */
-	-khtml-border-top-left-radius: 0px;
-	-khtml-border-top-right-radius: 0px;
-	-khtml-border-bottom-left-radius: 4px;
-	-khtml-border-bottom-right-radius: 0px;
+	-khtml-border-bottom-left-radius: 3px;
+	-khtml-border-bottom-right-radius: 3px;
 
-	border-style:none solid solid;
-	border-top:0 none;
-	border-width:0 1px 1px;
-	margin:0 15px;
-	padding:8px 12px 12px;
+	float: right;
+	font-family: sans-serif;
+	height: 22px;
+	margin: 0 0 0 6px;
+	padding: 0;
 }
 
-#dashboard-options-link-wrap {
-	-moz-background-clip:border;
-	-moz-background-inline-policy:continuous;
-	-moz-background-origin:padding;
-	background:none repeat scroll 0 0 #E3E3E3;
-	float:right;
-	font-family:"Lucida Grande",Verdana,Arial,"Bitstream Vera Sans",sans-serif;
-	height:22px;
-	margin:0 6px 0 0;
-	padding:0;
+#dashboard-options-wrap {
+    border-style: none solid solid;
+    border-top: 0 none;
+    border-width: 0 1px 1px;
+    margin: 0 20px 0 0;
+    padding: 8px 12px 12px;
 }
 
 #dashboard-options-wrap h5 {

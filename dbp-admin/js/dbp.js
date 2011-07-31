@@ -28,46 +28,11 @@ var dbp = {
 	set_options : function() {
 
 		jQuery('#dashboard-options-wrap').prependTo('#screen-meta');
-
 		html_tab     = "<div id='dashboard-options-link-wrap' class='hide-if-no-js screen-meta-toggle'><a id='dashboard-options-link' class='show-settings' href='#dashboard-options'>" + dbpL10n.dashboard_tab + "</a></div>";
 		jQuery('#screen-meta-links').append(html_tab);
 
-		// dashboard settings tab
-		jQuery('#dashboard-options-link').click(function () {
-			if ( ! jQuery('#dashboard-options-wrap').hasClass('dashboard-options-open') ) 
-			{
-				jQuery('#screen-options-link-wrap, #contextual-help-link-wrap').css('visibility', 'hidden');
-			}
-			jQuery('#dashboard-options-wrap').slideToggle('fast', function(){
-				if ( jQuery(this).hasClass('dashboard-options-open') ) {
-					jQuery('#dashboard-options-link').css({'backgroundImage':'url("images/screen-options-right.gif")'});
-					jQuery('#contextual-help-link-wrap, #screen-options-link-wrap').css('visibility', '');
-					jQuery(this).removeClass('dashboard-options-open');
-				} else {
-					jQuery('#dashboard-options-link').css({'backgroundImage':'url("images/screen-options-right-up.gif")'});
-					jQuery(this).addClass('dashboard-options-open');
-				}
-			});
-			return false;
-		});
-
-		// screen settings tab
-		jQuery('#show-settings-link').click(function () {
-			( ! jQuery('#screen-options-wrap').hasClass('screen-options-open') ) 
-			? jQuery('#dashboard-options-link-wrap').css('visibility', 'hidden')
-			: jQuery('#dashboard-options-link-wrap').css('visibility', '');
-			return false;
-		});
-
-		// help tab
-		jQuery('#contextual-help-link').click(function () {
-			( ! jQuery('#contextual-help-wrap').hasClass('contextual-help-open') )
-			? jQuery('#dashboard-options-link-wrap').css('visibility', 'hidden')
-			: jQuery('#dashboard-options-link-wrap').css('visibility', '');
-			return false;
-		});
-
-		jQuery('#contextual-help-link-wrap, #screen-options-link-wrap, #dashboard-options-link-wrap').show();
+		screenMeta.links['dashboard-options-link-wrap'] = 'dashboard-options-wrap';
+		jQuery('#dashboard-options-link-wrap').click( screenMeta.toggleEvent );
 
 		jQuery('.widgets-prefs input[type="radio"]').click(function(){
 			var w_data = {	action:	'dbp_count',
