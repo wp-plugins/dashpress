@@ -86,7 +86,7 @@ class DBP_Widget
 		foreach ( $this->options['feeds'] as $feed )
 		{
 ?>
-			<input class="widefat" id="rss-url-<?php echo $z; ?>" name="<?php echo $this->id; ?>[feeds][]" type="text" value="<?php echo clean_url($feed); ?>"  style='margin-bottom:5px;' /><br />
+			<input class="widefat" id="rss-url-<?php echo $z; ?>" name="<?php echo $this->id; ?>[feeds][]" type="text" value="<?php echo esc_url($feed); ?>"  style='margin-bottom:5px;' /><br />
 <?php
 			$z++;
 			if ($z > $this->options['maxfeeds']) break;
