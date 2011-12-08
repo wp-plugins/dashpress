@@ -27,12 +27,8 @@ var dbp = {
 
 	set_options : function() {
 
+		jQuery('#dashboard-options-link-wrap').appendTo('#screen-meta-links');
 		jQuery('#dashboard-options-wrap').prependTo('#screen-meta');
-		html_tab     = "<div id='dashboard-options-link-wrap' class='hide-if-no-js screen-meta-toggle'><a id='dashboard-options-link' class='show-settings' href='#dashboard-options'>" + dbpL10n.dashboard_tab + "</a></div>";
-		jQuery('#screen-meta-links').append(html_tab);
-
-		screenMeta.links['dashboard-options-link-wrap'] = 'dashboard-options-wrap';
-		jQuery('#dashboard-options-link-wrap').click( screenMeta.toggleEvent );
 
 		jQuery('.widgets-prefs input[type="radio"]').click(function(){
 			var w_data = {	action:	'dbp_count',

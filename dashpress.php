@@ -4,7 +4,7 @@ Plugin Name:  DashPress
 Plugin URI: http://wordpress.org/extend/plugins/dashpress/
 Description: The ultimate Dashboard management plugin
 Author: Andre Renaut
-Version: 3.2
+Version: 3.3
 Author URI: http://www.nogent94.com
 */
 
@@ -75,7 +75,6 @@ class DashPress {
 		wp_localize_script ( self::screen, 		'dbpL10n', array( 
 			'url' 		=> admin_url('admin-ajax.php'),
 			'can_edit'		=> current_user_can( 'edit_dashboard' ) ? 1 : 0,
-			'dashboard_tab' 	=> esc_js(__('Dashboard Options', self::txt_domain)),
 			'set'			=> esc_js(__('Set default', self::txt_domain)),
 			'erase'		=> esc_js(__('Erase default', self::txt_domain)),
 		));
@@ -150,6 +149,11 @@ class DashPress {
 ?>
 		</div>
 	</form>
+</div>
+<div id='dashboard-options-link-wrap' class='hide-if-no-js screen-meta-toggle'>
+	<a id='dashboard-options-link' class='show-settings' href='#dashboard-options-wrap'>
+		<?php _e('Dashboard Options', self::txt_domain); ?>
+	</a>
 </div>
 <?php
 	}
