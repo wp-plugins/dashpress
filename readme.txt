@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=andre
 Tags: Feed, Aggregator, SimplePie, Widget, Dashboard, Wordpress, Plugin, Management
 Requires at least: 3.3
 Tested up to: 3.3
-Stable tag: 3.2
+Stable tag: 3.3
 
 Allows you to display the last items of several feeds on your dashboard 
 
