@@ -77,7 +77,7 @@ class DBP_Widget
 <br />
 		<?php _e('Input : ', DashPress::txt_domain ); ?>&nbsp;<select name="<?php echo $this->id; ?>[maxfeeds]"><?php for ( $i = 3; $i <= 10; $i++ ) echo "<option value='$i'" . ( $this->options['maxfeeds'] == $i ? " selected='selected'" : '' ) . ">$i</option>";?></select>
 		&nbsp;&nbsp;
-		<?php _e('Caching : ', DashPress::txt_domain ); ?>&nbsp;<select name="<?php echo $this->id; ?>[caching]"><?php foreach($cachings as $key => $value) echo "<option value='$key'" . ( $this->options['height'] == $key ? " selected='selected'" : '' ) . ">$value</option>"; ?></select>
+		<?php _e('Caching : ', DashPress::txt_domain ); ?>&nbsp;<select name="<?php echo $this->id; ?>[caching]"><?php foreach($cachings as $key => $value) echo "<option value='$key'" . ( $this->options['caching'] == $key ? " selected='selected'" : '' ) . ">$value</option>"; ?></select>
 	</p>
 	<p>
 		<label><?php _e('Fill the RSS or Atom urls here', DashPress::txt_domain ); ?> : </label>

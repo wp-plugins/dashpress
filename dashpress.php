@@ -35,8 +35,8 @@ class DashPress {
 
 		add_action(	'wp_ajax_dbp_ajax',		array(__CLASS__, 'wp_ajax_dbp_ajax'));
 		add_action(	'wp_ajax_dbp_count',		array(__CLASS__, 'wp_ajax_dbp_count'));
-		add_action(	'wp_ajax_dbp_metabox',		array(__CLASS__, 'wp_ajax_dbp_metabox'));
-		add_action(	'wp_ajax_dbp_globset',		array(__CLASS__, 'wp_ajax_dbp_globset'));
+		add_action(	'wp_ajax_dbp_metabox',	array(__CLASS__, 'wp_ajax_dbp_metabox'));
+		add_action(	'wp_ajax_dbp_globset',	array(__CLASS__, 'wp_ajax_dbp_globset'));
 	}
 
 	public static function wp_dashboard_setup()
