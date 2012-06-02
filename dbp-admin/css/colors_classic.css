@@ -1,17 +1,17 @@
 #dashboard-options-wrap {
 	background-color: #f7fcfe;
-	border-color: #D1e5ee;
+	border-color: #d1e5ee;
 }
 
 #dashboard-options-link-wrap {
 	background-color: #eff8ff; /* Fallback */
-	border-right: 1px solid #D1E5EE;
-	border-left: 1px solid #D1E5EE;
-	border-bottom: 1px solid #D1E5EE;
-	background-image: -ms-linear-gradient(bottom, #eff8ff, #fff); /* IE10 */
-	background-image: -moz-linear-gradient(bottom, #eff8ff, #fff); /* Firefox */
-	background-image: -o-linear-gradient(bottom, #eff8ff, #fff); /* Opera */
+	border-right: 1px solid #d1e5ee;
+	border-left: 1px solid #d1e5ee;
+	border-bottom: 1px solid #d1e5ee;
+	background-image: -ms-linear-gradient(bottom, #def1ff, #eff8ff); /* IE10 */
+	background-image: -moz-linear-gradient(bottom, #def1ff, #eff8ff); /* Firefox */
+	background-image: -o-linear-gradient(bottom, #def1ff, #eff8ff); /* Opera */
 	background-image: -webkit-gradient(linear, left bottom, left top, from(#eff8ff), to(#fff)); /* old Webkit */
-	background-image: -webkit-linear-gradient(bottom, #eff8ff, #fff); /* new Webkit */
-	background-image: linear-gradient(bottom, #eff8ff, #fff); /* proposed W3C Markup */
+	background-image: -webkit-linear-gradient(bottom, #def1ff, #eff8ff); /* new Webkit */
+	background-image: linear-gradient(bottom, #def1ff, #eff8ff); /* proposed W3C Markup */
 }
