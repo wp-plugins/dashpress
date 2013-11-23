@@ -4,6 +4,8 @@ Plugin Name:  DashPress
 Plugin URI: http://wordpress.org/extend/plugins/dashpress/
 Description: The ultimate Dashboard management plugin
 Author: Andre Renaut
+Requires at least: 3.8
+Tested up to: 3.8
 Version: 3.5
 Author URI: http://www.nogent94.com
 */

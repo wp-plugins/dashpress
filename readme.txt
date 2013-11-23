@@ -3,7 +3,7 @@ Contributors: andre renaut
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=andre%2erenaut%40gmail%2ecom&lc=US&item_name=MailPress&item_number=gg&amount=5%2e00&currency_code=EUR&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHostedGuest
 Tags: Feed, Aggregator, SimplePie, Widget, Dashboard, Wordpress, Plugin, Management
 Requires at least: 3.8
-Tested up to: 3.3
+Tested up to: 3.8
 Stable tag: 3.4
 
 Allows you to display the last items of several feeds on your dashboard 
