@@ -4,7 +4,7 @@ Plugin Name:  DashPress
 Plugin URI: http://wordpress.org/extend/plugins/dashpress/
 Description: The ultimate Dashboard management plugin
 Author: Andre Renaut
-Version: 3.4
+Version: 3.5
 Author URI: http://www.nogent94.com
 */
 
@@ -135,7 +135,7 @@ class DashPress {
 		</div>
 			<h5><?php _e('DashPress Option', self::txt_domain); ?></h5>
 		<div class='widgets-prefs'>
-			<input id='dashpress-global-settings' type='button' value="<?php echo esc_attr($value); ?>" style='float:right;' />
+			<input id='dashpress-global-settings' type='button' class='button' value="<?php echo esc_attr($value); ?>" style='float:right;' />
 			<?php _e('Number of DashPress widgets:', self::txt_domain); ?>
 <?php
 		$count = get_user_option(self::option_name);

@@ -190,20 +190,26 @@ class DBP_Widget
 			if ( 'image' == $enclosure->get_medium() ) 		 		$img [] =  $enclosure->get_link(); 
 			$img [] = $item->get_feed()->get_image_link();
 			$img [] = $item->get_feed()->get_image_url();
+
+			$img = $this->clean_img($img);
 		}
+
+
 		if ($img == array())
 		{
+			$patterns[] = '/<img.+src=[\'"]([^\'"]+)[\'"].*>/i';
+			$patterns[] = '/\&\#x3c;img.+src=[\'"]([^\'"]+)[\'"].*>/i';
+
 			$content = $item->get_content();
-			$output  = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $content, $matches, PREG_SET_ORDER);
-			$wimg = '';
-			if (isset($matches [0] [1])) $wimg = str_replace(' ', '%20',$matches [0] [1]);
 
-			$needles = array ('bookmark.gif');				/* filter any icon of social bookmarkers ! */
-			if (!$this->in_string($wimg,$needles)) 			$img [] = $wimg;
+			foreach ($patterns as $pattern)
+			{
+				preg_match_all($pattern, $content, $matches, PREG_SET_ORDER);
+	
+				if (isset($matches [0] [1])) $img [] = str_replace(' ', '%20',$matches [0] [1]);
+			}
+			$img = $this->clean_img($img);
 		}
-
-		$img = array_filter($img,array(&$this, 'not_empty'));
-		$img = array_filter($img,array(&$this, 'is_url'));
 
 		switch (count($img))
 		{
@@ -223,7 +229,14 @@ class DBP_Widget
 	}
 
 /***************************************/
-	function in_string($haystack,$needles) 	{ foreach ($needles as $needle) if ((stripos($haystack,$needle) !== false)) return true; return false; }
+	function clean_img($img) {
+		if (array() == $img) return $img;
+		$img = array_filter($img,array(&$this, 'not_bookmark'));
+		$img = array_filter($img,array(&$this, 'not_empty'));
+		$img = array_filter($img,array(&$this, 'is_url'));
+		return array_unique($img);
+	}
+	function not_bookmark($var)		{ $needles = array ('bookmark.gif', 'feeds.feedburner.com'); foreach ($needles as $needle) if ((stripos($var,$needle) !== false)) return false; return true; }
 	function not_empty($var)			{ if (empty($var)) return false; return true; }
 	function is_url   ($var)			{ if (stripos($var,'http://') === false) return false; return true; }
 	function exclude  ($var)			{ $excludes = array('smilies'); foreach ($excludes as $exclude) if (stripos($var,$exclude) !== false) return false; return true; }
@@ -231,12 +244,10 @@ class DBP_Widget
 
 	function format_img($url)
 	{
-		$hmin = 10; $hmax = 150;
 		$wh = false;
-
 		$wh = @getimagesize($url);
-		if ( ($wh [1] < $hmin) || ($wh [1] > $hmax) )
-			return  '';
+		if ( $wh [1] < 10 ) return  '';
+
 		return  "<img src='$url' class='lastnews' />";
 	}
 }

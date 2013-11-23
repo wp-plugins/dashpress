@@ -1,17 +1,7 @@
-#dashboard-options-wrap {
-	background-color: #f7fcfe;
-	border-color: #d1e5ee;
-}
-
 #dashboard-options-link-wrap {
-	background-color: #eff8ff; /* Fallback */
-	border-right: 1px solid #d1e5ee;
-	border-left: 1px solid #d1e5ee;
-	border-bottom: 1px solid #d1e5ee;
-	background-image: -ms-linear-gradient(bottom, #def1ff, #eff8ff); /* IE10 */
-	background-image: -moz-linear-gradient(bottom, #def1ff, #eff8ff); /* Firefox */
-	background-image: -o-linear-gradient(bottom, #def1ff, #eff8ff); /* Opera */
-	background-image: -webkit-gradient(linear, left bottom, left top, from(#eff8ff), to(#fff)); /* old Webkit */
-	background-image: -webkit-linear-gradient(bottom, #def1ff, #eff8ff); /* new Webkit */
-	background-image: linear-gradient(bottom, #def1ff, #eff8ff); /* proposed W3C Markup */
+	border: 1px solid #ddd;
+	border-top: none;
+	background: #fff;
+	-webkit-box-shadow: 0px 1px 1px -1px rgba(0,0,0,0.1);
+	box-shadow:         0px 1px 1px -1px rgba(0,0,0,0.1);
 }

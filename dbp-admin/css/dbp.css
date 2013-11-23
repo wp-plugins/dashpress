@@ -1,35 +1,15 @@
 /* dashboard options tab */
 
-#dashboard-options-link-wrap {
-	/* css3 */
-	border-bottom-left-radius: 3px;
-	border-bottom-right-radius: 3px;
-
-	/* mozilla */
-	-moz-border-radius-bottomleft: 3px;
-	-moz-border-radius-bottomright: 3px;
-
-	/* webkit */
-	-webkit-border-bottom-left-radius: 3px;
-	-webkit-border-bottom-right-radius: 3px;
-
-	/* khtml */
-	-khtml-border-bottom-left-radius: 3px;
-	-khtml-border-bottom-right-radius: 3px;
-
-	float: right;
-	font-family: sans-serif;
-	height: 23px;
-	margin: 0 0 0 6px;
-	padding: 0;
+#dashboard-options-wrap {
+	margin: 0;
+	padding: 8px 20px 12px;
+	position: relative;
 }
 
-#dashboard-options-wrap {
-    border-style: none solid solid;
-    border-top: 0 none;
-    border-width: 0 1px 1px;
-    margin: 0 20px 0 0;
-    padding: 8px 12px 12px;
+#dashboard-options-link-wrap {
+	float: right;
+	height: 28px;
+	margin: 0 0 0 6px;
 }
 
 #dashboard-options-wrap h5 {
